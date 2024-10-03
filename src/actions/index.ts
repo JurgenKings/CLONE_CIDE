@@ -54,7 +54,7 @@ export const sendEmail = async (body: ISendEmail) => {
       subject: "Mensaje para soporte",
       react: React.createElement(ContactFormEmail, {
         message: body.message,
-        senderEmail: body.email,
+        email: body.email,
         name: body.name,
         numOrder: body.numOrder || ""
       }),

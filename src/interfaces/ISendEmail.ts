@@ -1,6 +1,6 @@
 export interface ISendEmail {
-  email: string
-  name: string
-  numOrder: string
-  message: string
+  email: string;
+  name: string;
+  numOrder: string;
+  message: string;
 }

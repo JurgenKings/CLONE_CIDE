@@ -6,8 +6,14 @@ import { getSaleById } from "@/services/sales/sale"
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import ImageSale from "@/components/ImageSale"
+import { ISaleDetailParams } from "@/interfaces/ISaleDetailParams"
+import { ISaleProduct } from "@/interfaces/ISaleProduct"
 
-async function SaleDetail({ params }) {
+interface SaleDetailProps {
+  params: ISaleDetailParams
+}
+
+const SaleDetail: React.FC<SaleDetailProps> = async ({ params }) => {
 
   const cookiesStore = cookies()
   const accessToken = cookiesStore.get('accessToken')?.value
@@ -97,7 +103,7 @@ async function SaleDetail({ params }) {
                     <p>
                       Correo: <span className="fw-bold">{sale?.clienteCorreo}</span>
                     </p>
-                    
+
                   </div>
                 </div>
               </div>
@@ -107,14 +113,16 @@ async function SaleDetail({ params }) {
               <h4>Productos comprados</h4>
               <ul className="list-group">
                 {
-                  sale?.productos?.map((item) => (
+                  sale?.productos?.map((item: ISaleProduct) => (
                     <li key={item.documentId} className="list-group-item pp-list-container">
                       <span>
                         {item.name} x {item.quantity}
                       </span>
                       <span className="pp-list-value">
                         Subtotal: ${
-                          (((item.priceAlMayor * (item.tasaComisionPorcentual * 0.01)))
+                          (((
+                            item.priceAlMayor * (item.tasaComisionPorcentual * 0.01)
+                          ))
                             + item.priceAlMayor)
                           * item.quantity
                         }

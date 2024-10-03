@@ -7,8 +7,15 @@ import ButtonCategory from "@/components/ButtonCategory"
 import AddToCartBtn from "@/components/AddToCartBtn"
 import Link from "next/link"
 import Image from "next/image"
+import { IProductDetailParams } from "@/interfaces/IProductDetailParams"
+import { IProduct } from "@/interfaces/IProduct"
+import { ICategory } from "@/interfaces/ICategory"
 
-async function ProductDetail({ params }) {
+interface ProductDetailProps {
+  params: IProductDetailParams
+}
+
+const ProductDetail: React.FC<ProductDetailProps> = async ({ params }) => {
 
   const { productId } = params
 
@@ -18,7 +25,7 @@ async function ProductDetail({ params }) {
   const products = productsData.data
   const categories = categoriesData.data
 
-  const getFeaturedProducts = (products, numFeatured) => {
+  const getFeaturedProducts = (products: IProduct[], numFeatured: number) => {
     const productsCopy = [...products]
     const featuredProducts = []
 
@@ -154,7 +161,7 @@ async function ProductDetail({ params }) {
                     <h4>Categorías</h4>
                     <ul className="list-unstyled fruite-categorie">
                       {
-                        categories.map((category) => (
+                        categories.map((category: ICategory) => (
                           <ButtonCategory
                             key={category.id}
                             category={category}
