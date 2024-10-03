@@ -1,0 +1,10 @@
+ME FALTA 
+-Agregar toda la data correcta en Backoffice (no depende de mi)
+
+-(DETALLE) Agregar opcion (btn) de ver contraseña en login
+-(DETALLE) Añadir 3 metodos de pago (pago movil, transferencia, paypal) y mostrar diferentes datos en procesar compra en base a esa eleccion
+
+-(SIMPLE) Poner correo real en contacto (resend)
+
+-(FUERTE) Perfil de mi cuenta que muestra historial de pedidos si soy distribuidor
+-(FUERTE) Confirmacion de la compra mediante un correo y que se esta procesando

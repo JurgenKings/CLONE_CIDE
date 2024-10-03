@@ -1,0 +1,11 @@
+{
+  "extends":  ["next/core-web-vitals", "next/typescript"],
+  "rules": {
+    "semi": ["error", "never"],
+    // "quotes": ["error", "double"], // tipo de comillas (dobles)
+    "eqeqeq": "error", 
+    "no-unused-vars": "off",  
+    "no-console": "off",
+    "indent": ["error", 2]
+  }
+}

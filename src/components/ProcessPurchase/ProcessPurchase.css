@@ -1,0 +1,56 @@
+.pp-container-bank {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pp-bank {
+  background-color: #e0f5eb;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.font-weight-bold {
+  font-weight: bold;
+}
+
+.file-input {
+  margin: 20px 0;
+}
+
+.file-input label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.file-input input {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.submit-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 1rem;
+  border: none;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #45a049;
+}
+
+.pp-list-container {
+  background-color: floralwhite;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+}
+
+.pp-list-value {
+  margin-right: 20%;
+  text-align: left;
+}

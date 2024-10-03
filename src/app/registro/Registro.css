@@ -1,0 +1,54 @@
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  overflow: auto;
+}
+
+.register-form {
+  background-color: rgb(183, 238, 169);
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 800px;
+  max-width: 100%;
+}
+
+.register-inputs-container {
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 1rem; 
+}
+
+.register-checkbox-container{
+  display: flex;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.register-checkbox {
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 0.4rem; 
+  border: 2px solid #fff; 
+  cursor: pointer; 
+}
+
+.register-checkbox:checked {
+  background-color: #fff; 
+  border: 2px solid green; 
+}
+
+.register-inputs-container input,
+.register-inputs-container select {
+  flex: 1 1 calc(50% - 1rem); 
+}
+
+@media (max-width: 768px) {
+  .register-inputs-container input,
+  .register-inputs-container select {
+    flex: 1 1 100%;
+  }
+}

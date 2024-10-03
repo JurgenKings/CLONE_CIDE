@@ -1,0 +1,38 @@
+.imagesale-btn {
+  background-color: transparent;
+  border: none;
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.imagesale-btn:hover {
+  transform: scale(1.1);
+}
+
+.imagesale-btn_check {
+  color: #008000;
+}
+
+.imagesale-btn_rejected {
+  color: #d39206;
+}
+
+.imagesale-btn_cancel {
+  color: #801a00;
+}
+
+.pp-list-container {
+  background-color: floralwhite;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+}
+
+.pp-list-value {
+  margin-right: 20%;
+  text-align: left;
+}
