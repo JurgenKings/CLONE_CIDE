@@ -1,1 +1,1 @@
-export const domain = "http://localhost:1337"
+export const domain = "https://0fz9tp4g-1337.use2.devtunnels.ms"
