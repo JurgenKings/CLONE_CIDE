@@ -11,6 +11,12 @@ const nextConfig = {
         port: '1337',
         pathname: '/uploads/**',
       },
+      {
+        protocol: 'https',
+        hostname: '0fz9tp4g-1337.use2.devtunnels.ms',
+        port: '',
+        pathname: '/uploads/**',
+      },
     ],
   },
 }
