@@ -59,6 +59,10 @@ async function StorePage({ searchParams }) {
     const productsCopy = [...products]
     const featuredProducts = []
 
+    if (productsCopy.length < numFeatured) {
+      return productsCopy
+    }
+
     while (featuredProducts.length < numFeatured && productsCopy.length > 0) {
       const randomIndex = Math.floor(Math.random() * productsCopy.length)
       featuredProducts.push(productsCopy.splice(randomIndex, 1)[0])
