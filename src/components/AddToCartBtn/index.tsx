@@ -18,7 +18,7 @@ function AddToCartBtn({ product }): React.JSX.Element {
   const handleAddToCart = () => {
     const productWithQuantity = { ...product, quantity: quantityToAddCart }
     addItem(productWithQuantity)
-    notify("success", product.name, "")
+    notify("success", product.nombre, "")
   }
 
   const handleChangeQuantity = (method: string) => {

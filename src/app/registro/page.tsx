@@ -21,7 +21,6 @@ function RegisterPage(): React.JSX.Element {
     birthDate: '',
     termsAccepted: false,
     gender: '',
-    esDistribuidor: false,
     esResponsableVentas: false
   })
 
@@ -75,11 +74,10 @@ function RegisterPage(): React.JSX.Element {
         email: formData.email,
         username: formData.username,
         password: formData.password,
-        name: formData.fullName,
-        birthDate: formData.birthDate,
-        gender: formData.gender,
+        nombre: formData.fullName,
+        fechaNacimiento: formData.birthDate,
+        genero: formData.gender,
         apellido: formData.lastName,
-        esDistribuidor: formData.esDistribuidor,
         esResponsableVentas: formData.esResponsableVentas,
       }
       

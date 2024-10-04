@@ -53,7 +53,7 @@ function CheckoutForm(): React.JSX.Element {
     })
   }
 
-  const total = cartItems.reduce((sum, product) => sum + ((((product.priceAlMayor * (product.tasaComisionPorcentual * 0.01))) + product.priceAlMayor)) * product.quantity, 0)
+  const total = cartItems.reduce((sum, product) => sum + ((((product.precioAlMayor * (product.tasaComisionPorcentual * 0.01))) + product.precioAlMayor)) * product.quantity, 0)
 
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -301,7 +301,7 @@ function CheckoutForm(): React.JSX.Element {
                         <th scope="row">
                           <div className="d-flex align-items-center mt-4">
                             <Image
-                              src={`${domain}${item.images[0].url}`}
+                              src={`${domain}${item.imagenes[0].url}`}
                               alt=""
                               width={90}
                               height={75}
@@ -311,16 +311,16 @@ function CheckoutForm(): React.JSX.Element {
                           </div>
                         </th>
                         <td className="py-5">
-                          {item.name}
+                          {item.nombre}
                         </td>
                         <td className="py-5">
-                          ${(((item.priceAlMayor * (item.tasaComisionPorcentual * 0.01))) + item.priceAlMayor).toFixed(2)}
+                          ${(((item.precioAlMayor * (item.tasaComisionPorcentual * 0.01))) + item.precioAlMayor).toFixed(2)}
                         </td>
                         <td className="py-5">
                           {item.quantity}
                         </td>
                         <td className="py-5">
-                          ${((((item.priceAlMayor * (item.tasaComisionPorcentual * 0.01))) + item.priceAlMayor) * item.quantity).toFixed(2)}
+                          ${((((item.precioAlMayor * (item.tasaComisionPorcentual * 0.01))) + item.precioAlMayor) * item.quantity).toFixed(2)}
                         </td>
                       </tr>
                     ))

@@ -10,8 +10,6 @@ export const getProducts = async (type: string, page: number) => {
     let apiUrl
     if (type === "page") apiUrl = `${PRODUCTS_URL.page}${page}&pagination[pageSize]=25&populate=*`
     else if (type === "all") apiUrl = PRODUCTS_URL.all
-
-    console.log("MI URL", apiUrl)
   
     const response = await fetch(apiUrl, {})
 
@@ -62,7 +60,7 @@ export const updateStockSaleConfirm = async (productsSale) => {
       })
 
       if (!res.ok) {
-        throw new Error(`Error al actualizar el stock del producto ${product.name}`)
+        throw new Error(`Error al actualizar el stock del producto ${product.nombre}`)
       }
     }
 
@@ -89,7 +87,7 @@ export const getProductsByCategory = async (categoryId: number) => {
 
 export const getProductsByPriceRange = async (minPrice: number, maxPrice: number) => {
   try {
-    const apiUrl = `${PRODUCTS_URL.byPriceRange}${minPrice}&filters[precioSinComision][$lte]=${maxPrice}`
+    const apiUrl = `${PRODUCTS_URL.byPriceRange}${minPrice}&filters[precioNeto][$lte]=${maxPrice}`
     const response = await fetch(apiUrl, {})
 
     const filteredProductsByPriceRange = await response.json()

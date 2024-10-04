@@ -2,7 +2,7 @@
 import Link from "next/link"
 import React, { useState } from "react"
 
-function SearchBar({searchBy}): React.JSX.Element {
+function SearchBar({ searchBy }): React.JSX.Element {
   const [searchText, setSearchText] = useState<string>("")
   return (
     <>
@@ -16,7 +16,7 @@ function SearchBar({searchBy}): React.JSX.Element {
             aria-describedby="search-icon-1"
             onChange={e => setSearchText(e.target.value)}
           />
-          <Link href={`${searchBy === "nombre" ? `/tienda?text=${searchText}` : `/ventas?text=${searchText}`}`}>
+          <Link href={`${searchBy === "nombre" ? `/tienda?text=${searchText}` : `/ventas?encargado=${searchText}`}`}>
             <span id="search-icon-1" className="input-group-text p-3">
               <i className="fa fa-search"></i>
             </span>

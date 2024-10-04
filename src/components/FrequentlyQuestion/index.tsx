@@ -16,7 +16,7 @@ function FrequentlyQuestion({ faq }): React.JSX.Element {
           onClick={toggleAnswer}
         >
           <span>
-            {faq.question}
+            {faq.pregunta}
           </span>
           <span
             style={{
@@ -33,7 +33,7 @@ function FrequentlyQuestion({ faq }): React.JSX.Element {
           </span>
         </div>
         <div className={`faq-answer ${isOpen ? 'show' : ''}`}>
-          {faq.answer}
+          {faq.respuesta}
         </div>
       </div>
     </>

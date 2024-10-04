@@ -19,7 +19,7 @@ function ProductCard({ product, isTienda }): React.JSX.Element {
   const handleAddToCart = () => {
     const productWithQuantity = { ...product, quantity: 1 }
     addItem(productWithQuantity)
-    notify("success", product.name)
+    notify("success", product.nombre)
   }
 
   return (
@@ -44,7 +44,7 @@ function ProductCard({ product, isTienda }): React.JSX.Element {
         >
           <div className="fruite-img" style={{ height: '180px', position: 'relative' }}>
             <Image
-              src={`${domain}${product.images[0].url}`}
+              src={`${domain}${product.imagenes[0].url}`}
               alt=""
               layout="fill"
               objectFit="cover"
@@ -54,7 +54,7 @@ function ProductCard({ product, isTienda }): React.JSX.Element {
           <div
             className="text-white bg-secondary px-3 py-1 rounded position-absolute"
             style={{ top: "10px", left: "10px" }}>
-            {product.category.name}
+            {product.categoria.nombre}
           </div>
           <div className="p-4 border-top-0 rounded-bottom" style={{ flex: "1" }}>
             <Link href={`/detalle-del-producto/${product.documentId}`}>
@@ -63,7 +63,7 @@ function ProductCard({ product, isTienda }): React.JSX.Element {
                 justifyContent: "space-between",
                 alignItems: "center"
               }}>
-                {product.name}
+                {product.nombre}
                 <span style={{
                   fontSize: "0.8rem"
                 }}>
@@ -75,7 +75,7 @@ function ProductCard({ product, isTienda }): React.JSX.Element {
                 </span>
               </h5>
               <p style={{ overflow: "hidden", textOverflow: "ellipsis", display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical" }}>
-                {product.description}
+                {product.descripcion}
               </p>
             </Link>
             <div
@@ -83,7 +83,7 @@ function ProductCard({ product, isTienda }): React.JSX.Element {
               style={{ gap: "0.5rem", marginTop: "auto" }}
             >
               <p className="text-dark fw-bold mb-0">
-                ${(((product.priceAlMayor * (product.tasaComisionPorcentual * 0.01))) + product.priceAlMayor).toFixed(2)}
+                ${(((product.precioAlMayor * (product.tasaComisionPorcentual * 0.01))) + product.precioAlMayor).toFixed(2)}
               </p>
 
               <button

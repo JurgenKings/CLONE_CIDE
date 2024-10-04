@@ -10,10 +10,12 @@ import { useRouter } from "next/navigation"
 import { updateStockSaleConfirm } from "@/services/products/products"
 import { createClient } from "@/services/clients/client"
 import Image from "next/image"
+import useUserStore from "@/hooks/useUserStore"
 
 function ImageSale({ sale }): React.JSX.Element {
 
   const router = useRouter()
+  const userData = useUserStore((state) => state.userData)
   const [showModal, setShowModal] = useState<boolean>(false)
   const [modalImage, setModalImage] = useState(null)
   const [loading, setLoading] = useState<boolean>(false)
@@ -22,6 +24,7 @@ function ImageSale({ sale }): React.JSX.Element {
   const currentStatus = sale.estado
   const proofPayment = sale.comprobantePago
   const productsSale = sale?.productos
+  const newEncargado = userData?.nombre
   const clientData = {
     data: {
       nombre: sale.clienteNombre,
@@ -47,10 +50,10 @@ function ImageSale({ sale }): React.JSX.Element {
     else toast.error("Error: no se pudo cambiar el estado, intente nuevamente")
   }
 
-  const handleClickNewState = async (newState: string) => {
+  const handleClickNewState = async (newState: string, newEncargado: string) => {
     setLoading(true)
     try {
-      const response = await updateStateSaleById(id, newState, proofPayment)
+      const response = await updateStateSaleById(id, newState, proofPayment, newEncargado)
 
       if (response) {
         if (newState === "Confirmada") {
@@ -128,7 +131,7 @@ function ImageSale({ sale }): React.JSX.Element {
                             className="my-auto imagesale-btn imagesale-btn_check"
                             type="button"
                             onClick={() => {
-                              handleClickNewState("Confirmada")
+                              handleClickNewState("Confirmada", newEncargado)
                             }}
                           >
                             <i className="fas fa-check-circle fa-2x"></i>

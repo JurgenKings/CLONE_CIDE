@@ -10,7 +10,7 @@ function ButtonCategory({ category }): React.JSX.Element {
         <div className="d-flex justify-content-between fruite-name">
           <Link href={`/tienda?categoryId=${category.id}`}>
             <i className="fas fa-check me-2"></i>
-            {category.name}
+            {category.nombre}
           </Link>
         </div>
       </li>

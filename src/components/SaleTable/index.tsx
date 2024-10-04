@@ -32,7 +32,7 @@ function SaleTable({ sales }): React.JSX.Element {
                 </th>
                 <td>
                   <p className="mb-0 mt-4">
-                    {item.clienteNombre}
+                    {item.encargado}
                   </p>
                 </td>
                 <td>

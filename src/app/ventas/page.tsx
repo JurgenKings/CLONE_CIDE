@@ -3,16 +3,26 @@ import { cookies } from "next/headers"
 import { redirect } from "next/navigation"
 import Breadcrumb from "@/components/Breadcrumb"
 import SaleTable from "@/components/SaleTable"
-import { getSales } from "@/services/sales/sale"
+import { getSales, getSalesByEncargado } from "@/services/sales/sale"
 
-async function SalesPage() {
+const getFilteredSales = async (accessToken: string, encargado: string, page: number) => {
+  if (!encargado) {
+    return await getSales(accessToken, "page", Number(page))
+  }
+  return await getSalesByEncargado(accessToken, encargado)
+}
+
+async function SalesPage({ searchParams }) {
   const cookiesStore = cookies()
   const accessToken = cookiesStore.get('accessToken')?.value
   if (!accessToken) {
     redirect("/login")
   }
 
-  const salesData = await getSales(accessToken)
+  const encargado = searchParams.encargado
+  const page = parseInt(searchParams.page) || 1
+
+  const salesData = await getFilteredSales(accessToken, encargado, page)
   const sales = salesData.data
 
   return (
@@ -29,9 +39,9 @@ async function SalesPage() {
                   //   <p>El carrito está vacío</p>
                   // ) : (
                   <div className="table-responsive">
-                    <SaleTable sales={sales}/>
+                    <SaleTable sales={sales} />
                   </div>
-    
+
                 }
               </div>
             </div>

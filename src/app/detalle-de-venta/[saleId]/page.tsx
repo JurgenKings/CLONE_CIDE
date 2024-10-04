@@ -14,7 +14,7 @@ interface SaleDetailProps {
 }
 
 const SaleDetail: React.FC<SaleDetailProps> = async ({ params }) => {
-
+  
   const cookiesStore = cookies()
   const accessToken = cookiesStore.get('accessToken')?.value
   if (!accessToken) {
@@ -73,6 +73,9 @@ const SaleDetail: React.FC<SaleDetailProps> = async ({ params }) => {
                       Estado:<span className="fw-bold"> {sale?.estado}</span>
                     </p>
                     <p>
+                      Encargado:<span className="fw-bold"> {sale?.encargado}</span>
+                    </p>
+                    <p>
                       Ciudad del envío: <span className="fw-bold">{sale?.envioCiudad}</span>
                     </p>
 
@@ -103,7 +106,7 @@ const SaleDetail: React.FC<SaleDetailProps> = async ({ params }) => {
                     <p>
                       Correo: <span className="fw-bold">{sale?.clienteCorreo}</span>
                     </p>
-
+                    
                   </div>
                 </div>
               </div>
@@ -116,14 +119,12 @@ const SaleDetail: React.FC<SaleDetailProps> = async ({ params }) => {
                   sale?.productos?.map((item: ISaleProduct) => (
                     <li key={item.documentId} className="list-group-item pp-list-container">
                       <span>
-                        {item.name} x {item.quantity}
+                        {item.nombre} x {item.quantity}
                       </span>
                       <span className="pp-list-value">
                         Subtotal: ${
-                          (((
-                            item.priceAlMayor * (item.tasaComisionPorcentual * 0.01)
-                          ))
-                            + item.priceAlMayor)
+                          (((item.precioAlMayor * (item.tasaComisionPorcentual * 0.01)))
+                            + item.precioAlMayor)
                           * item.quantity
                         }
                       </span>

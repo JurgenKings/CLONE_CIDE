@@ -41,7 +41,7 @@ async function MyAccountPage() {
                         <th scope="row">
                           <div className="d-flex align-items-center">
                             <img
-                              src={`${domain}${item.images[0].url}`}
+                              src={`${domain}${item.imagenes[0].url}`}
                               className="img-fluid me-5 rounded-circle"
                               style={{ width: "80px", height: "80px" }}
                               alt=""
@@ -50,12 +50,12 @@ async function MyAccountPage() {
                         </th>
                         <td>
                           <p className="mb-0 mt-4">
-                            {item.name}
+                            {item.nombre}
                           </p>
                         </td>
                         <td>
                           <p className="mb-0 mt-4">
-                            ${(((item.priceAlMayor * (item.tasaComisionPorcentual * 0.01))) + item.priceAlMayor).toFixed(2)}
+                            ${(((item.precioAlMayor * (item.tasaComisionPorcentual * 0.01))) + item.precioAlMayor).toFixed(2)}
                           </p>
                         </td>
                         <td>
@@ -84,7 +84,7 @@ async function MyAccountPage() {
                         </td>
                         <td>
                           <p className="mb-0 mt-4">
-                            ${((((item.priceAlMayor * (item.tasaComisionPorcentual * 0.01))) + item.priceAlMayor) * item.quantity).toFixed(2)}
+                            ${((((item.precioAlMayor * (item.tasaComisionPorcentual * 0.01))) + item.precioAlMayor) * item.quantity).toFixed(2)}
                           </p>
                         </td>
                         <td>

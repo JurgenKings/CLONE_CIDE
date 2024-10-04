@@ -14,6 +14,7 @@ function ModalSearchBar(): React.JSX.Element {
   const closeModal = () => {
     setShowModal(false)
   }
+  
   const handleSearchClick = () => {
     setShowModal(false)
     setSearchText("")

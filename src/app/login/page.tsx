@@ -21,6 +21,13 @@ function LoginPage(): React.JSX.Element {
   const [error, setError] = useState<string>("")
   const [loading, setLoading] = useState<boolean>(false)
 
+  const [showPassword, setShowPassword] = useState<boolean>(false)
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword)
+  }
+
+
   const notify = (type: string) => {
     if (type === "success") toast.success("Inicio de sesión exitoso")
     else if (type === "serverError") toast.error("Ocurrió un error al iniciar sesión")
@@ -109,29 +116,55 @@ function LoginPage(): React.JSX.Element {
               </div>
             ) : (
               <>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Correo"
-                  required
-                  className="w-100 form-control border-0 py-3 mb-4"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-                <input
-                  type="password"
-                  name="password"
-                  placeholder="Contraseña"
-                  required
-                  value={password}
-                  className="w-100 form-control border-0 py-3 mb-4"
-                  onChange={(e) => setPassword(e.target.value)}
-                />
+                <div className="contenedor-input-login">
+                  <input
+                    type="email"
+                    name="email"
+                    value={email}
+                    required
+                    className={`w-100 input-login form-control border-0 py-3 mb-4 ${email ? "no-vacio " : ""}`}
+                    id="login-email"
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                  <label className="label-login" htmlFor="login-email">
+                    Correo electrónico
+                  </label>
+                </div>
+                <div className="contenedor-input-login">
+
+                  <input
+                    // type="password"
+                    name="password"
+                    type={showPassword ? "text" : "password"}
+                    required
+                    value={password}
+                    id="login-password"
+                    className={`w-100 input-login form-control border-0 py-3 mb-4 ${password ? "no-vacio " : ""}`}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                  <label className="label-login" htmlFor="login-password">
+                    Contraseña
+                  </label>
+                </div>
+                <button
+                  type="button"
+                  className="absolute inset-y-0 right-0 flex items-center px-3 focus:outline-none"
+                  aria-label={showPassword ? "Ocultar contraseña" : "Mostrar contraseña"}
+                  style={{ top: "50%", transform: "translateY(-50%)" }}
+                  onClick={togglePasswordVisibility}
+                >
+                  {showPassword ? (
+                    <i className="fas fa-eye"></i>
+                  ) : (
+                    <i className="fas fa-eye-slash"></i>
+                  )}
+                </button>
                 <label className="login-checkbox-container mb-4">
                   <input
                     name="rememberMe"
                     type="checkbox"
                     className="login-checkbox"
+
                     checked={rememberMe}
                     onChange={() => setRememberMe(!rememberMe)}
                   />

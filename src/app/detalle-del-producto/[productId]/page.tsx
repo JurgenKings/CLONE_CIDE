@@ -51,7 +51,7 @@ const ProductDetail: React.FC<ProductDetailProps> = async ({ params }) => {
                 <div className="col-lg-6">
                   <div className="border rounded">
                     <Image
-                      src={`${domain}${product.images[0].url}`}
+                      src={`${domain}${product.imagenes[0].url}`}
                       layout="responsive"
                       width={500}
                       height={300}
@@ -62,10 +62,10 @@ const ProductDetail: React.FC<ProductDetailProps> = async ({ params }) => {
                 </div>
                 <div className="col-lg-6">
                   <h4 className="fw-bold mb-3">
-                    {product.name}
+                    {product.nombre}
                   </h4>
                   <p className="mb-3">
-                    Categoría: {product.category.name}
+                    Categoría: {product.categoria.nombre}
                   </p>
                   <p className="mb-3">
                     Existencia:
@@ -76,10 +76,10 @@ const ProductDetail: React.FC<ProductDetailProps> = async ({ params }) => {
                     }
                   </p>
                   <h5 className="fw-bold mb-3">
-                    ${(((product.priceAlMayor * (product.tasaComisionPorcentual * 0.01))) + product.priceAlMayor).toFixed(2)}
+                    ${(((product.precioAlMayor * (product.tasaComisionPorcentual * 0.01))) + product.precioAlMayor).toFixed(2)}
                   </h5>
                   <p className="mb-4">
-                    {product.description}
+                    {product.descripcion}
                   </p>
 
                   <AddToCartBtn product={product} />
@@ -106,16 +106,27 @@ const ProductDetail: React.FC<ProductDetailProps> = async ({ params }) => {
                           <div className="col-6">
                             <div className="row bg-light align-items-center text-center justify-content-center py-2">
                               {
+                                product?.EAN && (
+                                  <div className="row bg-light text-center align-items-center justify-content-center py-2">
+                                    <div className="col-6">
+                                      <p className="mb-0">EAN</p>
+                                    </div>
+                                    <div className="col-6">
+                                      <p className="mb-0">{product?.EAN}</p>
+                                    </div>
+                                  </div>
+                                )
+                              }
+                              {
                                 product?.peso && (
-                                  <>
+                                  <div className="row bg-light text-center align-items-center justify-content-center py-2">
                                     <div className="col-6">
                                       <p className="mb-0">Peso</p>
                                     </div>
-
                                     <div className="col-6">
                                       <p className="mb-0">{product?.peso}</p>
                                     </div>
-                                  </>
+                                  </div>
                                 )
                               }
                             </div>
@@ -133,14 +144,14 @@ const ProductDetail: React.FC<ProductDetailProps> = async ({ params }) => {
                               )
                             }
                             {
-                              product?.calidad && (
+                              product?.marca && (
                                 <div className="row bg-light text-center align-items-center justify-content-center py-2">
                                   <div className="col-6">
-                                    <p className="mb-0">Calidad</p>
+                                    <p className="mb-0">Marca</p>
                                   </div>
 
                                   <div className="col-6">
-                                    <p className="mb-0">{product?.calidad}</p>
+                                    <p className="mb-0">{product?.marca}</p>
                                   </div>
                                 </div>
                               )
@@ -181,7 +192,7 @@ const ProductDetail: React.FC<ProductDetailProps> = async ({ params }) => {
                       <div key={item.documentId} className="d-flex align-items-center justify-content-start">
                         <div className="rounded" style={{ width: "100px", height: "100px" }}>
                           <Image
-                            src={`${domain}${item.images[0].url}`}
+                            src={`${domain}${item.imagenes[0].url}`}
                             layout="fixed"
                             width={80}
                             height={80}
@@ -194,11 +205,11 @@ const ProductDetail: React.FC<ProductDetailProps> = async ({ params }) => {
                         </div>
                         <div>
                           <h6 className="mb-2">
-                            {item.name}
+                            {item.nombre}
                           </h6>
                           <div className="d-flex mb-2">
                             <h5 className="fw-bold me-2">
-                              ${(((item.priceAlMayor * (item.tasaComisionPorcentual * 0.01))) + item.priceAlMayor).toFixed(2)}
+                              ${(((item.precioAlMayor * (item.tasaComisionPorcentual * 0.01))) + item.precioAlMayor).toFixed(2)}
                             </h5>
                           </div>
                         </div>

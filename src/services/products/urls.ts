@@ -6,8 +6,8 @@ export const PRODUCTS_URL = {
   detailById: `${domain}/api/products/`,
   updateStock: `${domain}/api/products/`,
   byCategory: `${domain}/api/products?populate=*&filters[category][id][$eq]=`, 
-  byPriceRange: `${domain}/api/products?populate=*&filters[precioSinComision][$gte]=`,
+  byPriceRange: `${domain}/api/products?populate=*&filters[precioNeto][$gte]=`,
   byName: `${domain}/api/products?populate=*&filters[name][$contains]=`, 
-  sortByPriceAsc: `${domain}/api/products?populate=*&sort=precioSinComision:asc`, 
-  sortByPriceDesc: `${domain}/api/products?populate=*&sort=precioSinComision:desc` 
+  sortByPriceAsc: `${domain}/api/products?populate=*&sort=precioNeto:asc`, 
+  sortByPriceDesc: `${domain}/api/products?populate=*&sort=precioNeto:desc` 
 }

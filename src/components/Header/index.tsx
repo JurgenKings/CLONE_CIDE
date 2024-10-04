@@ -6,10 +6,9 @@ import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { usePathname } from "next/navigation"
 import React, { useEffect, useState } from "react"
-import ModalSearchBar from "../ModalSearchBar"
+import ModalSearchBar from "@/components/ModalSearchBar"
 import { getCompany } from "@/services/companies/company"
-
-
+import Drawer from "@/components/Drawer"
 
 function Header(): React.JSX.Element {
 
@@ -19,6 +18,12 @@ function Header(): React.JSX.Element {
 
   const pathname = usePathname()
   const shouldShowHeader = (pathname === "/login" || pathname === "/registro")
+
+  const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false)
+
+  const toggleDrawer = () => {
+    setIsDrawerOpen(!isDrawerOpen)
+  }
 
   const notify = () => {
     toast.error("Ocurrió un error inesperado")
@@ -53,13 +58,13 @@ function Header(): React.JSX.Element {
                   <small className="me-3">
                     <i className="fas fa-map-marker-alt me-2 text-secondary"></i>
                     <Link href="/contacto" className="text-white">
-                      {company?.addressTitle}, {company?.address}
+                      {company?.direccionTitulo}, {company?.direccion}
                     </Link>
                   </small>
                   <small className="me-3">
                     <i className="fas fa-envelope me-2 text-secondary"></i>
                     <Link href="/contacto" className="text-white">
-                      {company?.email}
+                      {company?.correo}
                     </Link>
                   </small>
                   <small className="me-3">
@@ -78,7 +83,13 @@ function Header(): React.JSX.Element {
                     Cidepym
                   </h1>
                 </Link>
-                <button className="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <button
+                  className="navbar-toggler py-2 px-3"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#navbarCollapse"
+                  onClick={toggleDrawer}
+                >
                   <span className="fa fa-bars text-primary"></span>
                 </button>
                 <div className="collapse navbar-collapse bg-white" id="navbarCollapse">
@@ -106,7 +117,7 @@ function Header(): React.JSX.Element {
                       )
                     }
                     {
-                      !userData.name && (
+                      !userData.email && (
                         <Link href="/login" className="nav-item nav-link">
                           Iniciar sesión
                         </Link>
@@ -129,6 +140,7 @@ function Header(): React.JSX.Element {
               </nav>
             </div>
           </div>
+          <Drawer isOpen={isDrawerOpen} toggleDrawer={toggleDrawer} />
         </>
       )}
 

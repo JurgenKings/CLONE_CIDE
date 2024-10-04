@@ -31,7 +31,7 @@ async function AboutPage() {
                     </h2>
                     <p className="mb-4">
                       {
-                        company.mission
+                        company.mision
                       }
                     </p>
                   </div>
@@ -40,7 +40,7 @@ async function AboutPage() {
                       <div className="carousel-inner" role="listbox">
                         <div className="carousel-item active rounded">
                           <Image
-                            src={`${domain}${company.missionImage.url}`}
+                            src={`${domain}${company?.imagenMision?.url}`}
                             layout="responsive"
                             width={800} 
                             height={600} 
@@ -63,7 +63,7 @@ async function AboutPage() {
                       <div className="carousel-inner" role="listbox">
                         <div className="carousel-item active rounded">
                           <Image
-                            src={`${domain}${company.visionImage.url}`}
+                            src={`${domain}${company?.imagenVision?.url}`}
                             layout="responsive"
                             width={800} 
                             height={600} 
@@ -97,7 +97,7 @@ async function AboutPage() {
                     </h2>
                     <p className="mb-4">
                       {
-                        company.values
+                        company.valores
                       }
                     </p>
                   </div>
@@ -106,7 +106,7 @@ async function AboutPage() {
                       <div className="carousel-inner" role="listbox">
                         <div className="carousel-item active rounded">
                           <Image
-                            src={`${domain}${company.valuesImage.url}`}
+                            src={`${domain}${company?.imagenValores?.url}`}
                             layout="responsive"
                             width={800} 
                             height={600} 
@@ -129,7 +129,7 @@ async function AboutPage() {
                       <div className="carousel-inner" role="listbox">
                         <div className="carousel-item active rounded">
                           <Image
-                            src={`${domain}${company.historyImage.url}`}
+                            src={`${domain}${company?.imagenHistoria?.url}`}
                             layout="responsive"
                             width={800} 
                             height={600} 
@@ -146,7 +146,7 @@ async function AboutPage() {
                     </h2>
                     <p className="mb-4">
                       {
-                        company.history
+                        company.historia
                       }
                     </p>
                   </div>
@@ -173,12 +173,12 @@ async function AboutPage() {
                   <div>
                     <h4>
                       {
-                        company.addressTitle
+                        company.direccionTitulo
                       }
                     </h4>
                     <p className="mb-2">
                       {
-                        company.address
+                        company.direccion
                       }
                     </p>
                   </div>
@@ -193,7 +193,7 @@ async function AboutPage() {
                     </h4>
                     <p className="mb-2">
                       {
-                        company.email
+                        company.correo
                       }
                     </p>
                   </div>

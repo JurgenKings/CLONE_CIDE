@@ -13,5 +13,4 @@ export interface Iuser {
   name: string
   birthDate: string
   gender: string
-  esDistribuidor?: boolean
 }

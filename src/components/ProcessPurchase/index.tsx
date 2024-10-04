@@ -27,9 +27,9 @@ function ProcessPurchase(): React.JSX.Element {
   const [file, setFile] = useState<File | null>(null)
   const [loading, setLoading] = useState<boolean>(false)
 
-  const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
-    if (event.target.files) {
-      setFile(event.target.files[0])
+  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      setFile(e.target.files[0])
     }
   }
 
@@ -140,12 +140,12 @@ function ProcessPurchase(): React.JSX.Element {
                   cartItems.map((item) => (
                     <li key={item.documentId} className="list-group-item pp-list-container">
                       <span>
-                        {item.name} x {item.quantity}
+                        {item.nombre} x {item.quantity}
                       </span>
                       <span className="pp-list-value">
                         Subtotal: ${
-                          (((item.priceAlMayor * (item.tasaComisionPorcentual * 0.01)))
-                            + item.priceAlMayor)
+                          (((item.precioAlMayor * (item.tasaComisionPorcentual * 0.01)))
+                            + item.precioAlMayor)
                           * item.quantity
                         }
                       </span>

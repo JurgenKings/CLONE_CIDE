@@ -4,16 +4,20 @@ import { IImage } from "./IImage"
 export interface IProduct {
   id: number;
   documentId: string;
-  name: string;
-  description: string;
+  nombre: string;
+  descripcion: string;
   stock: number;
   tasaComisionPorcentual: number;
-  precioSinComision: number;
-  priceAlMayor: number;
+  tasaComisionPorcentualAlMayor: number;
+  precioNeto: number;
+  precioAlMayor: number;
   descripcionDetallada: string;
   peso: string;
+  paisOrigen: string;
+  marca: string;
+  EAN: string;
   quantity?: number;
-  images?: IImage[] | IImage;
-  category?: ICategory;
+  imagenes?: IImage[] | IImage;
+  categoria?: ICategory;
   localizations?: null | boolean | string | number | undefined | unknown | never | void | object | null[] | boolean[] | string[] | number[] | undefined[] | unknown[] | never[] | void[] | object[];
 }

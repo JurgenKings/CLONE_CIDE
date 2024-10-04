@@ -103,8 +103,8 @@ function Footer(): React.JSX.Element {
                 <div className="col-lg-3 col-md-6">
                   <div className="footer-item">
                     <h4 className="text-light mb-3">Contacto</h4>
-                    <p>Dirección: {company?.addressTitle}, {company?.address}</p>
-                    <p>Correo: {company?.email}</p>
+                    <p>Dirección: {company?.direccionTitulo}, {company?.direccion}</p>
+                    <p>Correo: {company?.correo}</p>
                     <p>Teléfono: {company?.phone}</p>
                     <p>Pagos Aceptados</p>
                     <Image

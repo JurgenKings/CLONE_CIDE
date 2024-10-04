@@ -19,7 +19,7 @@ function ProductCardRounded({ product }): React.JSX.Element {
   const handleAddToCart = () => {
     const productWithQuantity = { ...product, quantity: 1 }
     addItem(productWithQuantity)
-    notify("success", product.name)
+    notify("success", product.nombre)
   }
 
   return (
@@ -40,7 +40,7 @@ function ProductCardRounded({ product }): React.JSX.Element {
           <div className="row align-items-center">
             <div className="col-6">
               <Image
-                src={`${domain}${product.images[0].url}`}
+                src={`${domain}${product.imagenes[0].url}`}
                 alt=""
                 width={140}
                 height={140}
@@ -50,7 +50,7 @@ function ProductCardRounded({ product }): React.JSX.Element {
             </div>
             <div className="col-6">
               <Link href={`/detalle-del-producto/${product.documentId}`} className="h5">
-                {product.name}
+                {product.nombre}
               </Link>
               <div className="d-flex my-3">
                 {
@@ -60,7 +60,7 @@ function ProductCardRounded({ product }): React.JSX.Element {
                 }
               </div>
               <h4 className="mb-3">
-                ${(((product.priceAlMayor * (product.tasaComisionPorcentual * 0.01))) + product.priceAlMayor).toFixed(2)}
+                ${(((product.precioAlMayor * (product.tasaComisionPorcentual * 0.01))) + product.precioAlMayor).toFixed(2)}
               </h4>
               <button
                 className="btn border border-secondary rounded-pill px-3 text-primary"

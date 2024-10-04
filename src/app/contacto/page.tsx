@@ -32,12 +32,12 @@ async function ContactPage() {
                   <div>
                     <h4>
                       {
-                        company.addressTitle
+                        company.direccionTitulo
                       }
                     </h4>
                     <p className="mb-2">
                       {
-                        company.address
+                        company.direccion
                       }
                     </p>
                   </div>
@@ -50,7 +50,7 @@ async function ContactPage() {
                     </h4>
                     <p className="mb-2">
                       {
-                        company.email
+                        company.correo
                       }
                     </p>
                   </div>

@@ -26,7 +26,7 @@ function ShoppingCart(): React.JSX.Element {
     notify("success", name, "")
   }
 
-  const total = cartItems.reduce((sum, product) => sum + ((((product.priceAlMayor * (product.tasaComisionPorcentual * 0.01))) + product.priceAlMayor)) * product.quantity, 0)
+  const total = cartItems.reduce((sum, product) => sum + ((((product.precioAlMayor * (product.tasaComisionPorcentual * 0.01))) + product.precioAlMayor)) * product.quantity, 0)
 
   return (
     <>
@@ -61,7 +61,7 @@ function ShoppingCart(): React.JSX.Element {
                         <th scope="row">
                           <div className="d-flex align-items-center">
                             <Image
-                              src={`${domain}${item.images[0].url}`}
+                              src={`${domain}${item.imagenes[0].url}`}
                               width={80}
                               height={80}
                               className="img-fluid me-5 rounded-circle"
@@ -72,12 +72,12 @@ function ShoppingCart(): React.JSX.Element {
                         </th>
                         <td>
                           <p className="mb-0 mt-4">
-                            {item.name}
+                            {item.nombre}
                           </p>
                         </td>
                         <td>
                           <p className="mb-0 mt-4">
-                            ${(((item.priceAlMayor * (item.tasaComisionPorcentual * 0.01))) + item.priceAlMayor).toFixed(2)}
+                            ${(((item.precioAlMayor * (item.tasaComisionPorcentual * 0.01))) + item.precioAlMayor).toFixed(2)}
                           </p>
                         </td>
                         <td>
@@ -106,7 +106,7 @@ function ShoppingCart(): React.JSX.Element {
                         </td>
                         <td>
                           <p className="mb-0 mt-4">
-                            ${((((item.priceAlMayor * (item.tasaComisionPorcentual * 0.01))) + item.priceAlMayor) * item.quantity).toFixed(2)}
+                            ${((((item.precioAlMayor * (item.tasaComisionPorcentual * 0.01))) + item.precioAlMayor) * item.quantity).toFixed(2)}
                           </p>
                         </td>
                         <td>
@@ -122,7 +122,7 @@ function ShoppingCart(): React.JSX.Element {
                           <button
                             className="btn btn-md rounded-circle bg-light border mt-4"
                             onClick={() => {
-                              handleDeleteCart(item.documentId, item.name)
+                              handleDeleteCart(item.documentId, item.nombre)
                             }}
                           >
                             <i className="fa fa-times text-danger"></i>

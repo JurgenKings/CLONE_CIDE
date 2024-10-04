@@ -1,7 +1,7 @@
 export interface ICategory {
   id?: number;
   documentId?: string;
-  name: string;
+  nombre: string;
   createdAt?: string;
   updatedAt?: string;
   publishedAt?: string;

@@ -13,11 +13,19 @@ import ProductCard from "@/components/ProductCard"
 import Pagination from "@/components/Pagination"
 import Image from "next/image"
 
-const getFilteredProducts = async (categoryId, minPrice, maxPrice, text, sortMethod, page) => {
-  if ((!categoryId && !minPrice && !text && !sortMethod)) return await getProducts("page", Number(page))
-  else if ((!categoryId && minPrice)) return await getProductsByPriceRange(minPrice, maxPrice)
-  else if ((!categoryId && !minPrice && !text) && sortMethod) return await getSortProducts(sortMethod)
-  else if ((!categoryId && !minPrice && !sortMethod) && text) return await getProductsByName(text)
+const getFilteredProducts = async (categoryId: number, minPrice, maxPrice, text: string, sortMethod: string, page) => {
+  if (!categoryId && !minPrice && !text && !sortMethod) {
+    return await getProducts("page", Number(page))
+  }
+  if (minPrice) {
+    return await getProductsByPriceRange(minPrice, maxPrice)
+  }
+  if (sortMethod) {
+    return await getSortProducts(sortMethod)
+  }
+  if (text) {
+    return await getProductsByName(text)
+  }
   return await getProductsByCategory(categoryId)
 }
 
@@ -114,7 +122,7 @@ async function StorePage({ searchParams }) {
                           <div key={item.documentId} className="d-flex align-items-center justify-content-start">
                             <div className="rounded me-4" style={{ width: "100px", height: "100px" }}>
                               <Image
-                                src={`${domain}${item.images[0].url}`}
+                                src={`${domain}${item.imagenes[0].url}`}
                                 layout="fixed"
                                 width={80}
                                 height={80}
@@ -128,12 +136,12 @@ async function StorePage({ searchParams }) {
                             <div>
                               <Link href={`/detalle-del-producto/${item.documentId}`}>
                                 <h6 className="mb-2">
-                                  {item.name}
+                                  {item.nombre}
                                 </h6>
                               </Link>
                               <div className="d-flex mb-2">
                                 <h5 className="fw-bold me-2">
-                                  ${(((item.priceAlMayor * (item.tasaComisionPorcentual * 0.01))) + item.priceAlMayor).toFixed(2)}
+                                  ${(((item.precioAlMayor * (item.tasaComisionPorcentual * 0.01))) + item.precioAlMayor).toFixed(2)}
                                 </h5>
                               </div>
                             </div>
@@ -150,8 +158,8 @@ async function StorePage({ searchParams }) {
                         <Image
                           src="/images/banner-fruits.jpg"
                           layout="responsive"
-                          width={700} 
-                          height={475} 
+                          width={700}
+                          height={475}
                           className="img-fluid w-100 rounded"
                           alt=""
                         />

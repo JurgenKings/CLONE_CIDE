@@ -4,9 +4,11 @@ import { SALES_URL } from "./urls"
 import { redirect } from "next/navigation"
 
 
-export const getSales = async (token: string) => {
+export const getSales = async (token: string, type: string, page: number) => {
   try {
-    const apiUrl = SALES_URL.all
+    let apiUrl
+    if (type === "page") apiUrl = `${SALES_URL.page}${page}&pagination[pageSize]=25&populate=*`
+    else if (type === "all") apiUrl = SALES_URL.all
 
     const response = await fetch(apiUrl, {
       headers: new Headers({
@@ -72,7 +74,7 @@ export const createSale = async (body) => {
   }
 }
 
-export const updateStateSaleById = async (id: string, newState: string, proofPayment) => {
+export const updateStateSaleById = async (id: string, newState: string, proofPayment, newEncargado: string) => {
 
   const cookiesStore = cookies()
   const accessToken = cookiesStore.get('accessToken')?.value
@@ -93,6 +95,7 @@ export const updateStateSaleById = async (id: string, newState: string, proofPay
       body: JSON.stringify({
         data: {
           estado: newState,
+          encargado: newEncargado,
           comprobantePago: proofPayment.id
         }
       })
@@ -101,5 +104,22 @@ export const updateStateSaleById = async (id: string, newState: string, proofPay
     return RES
   } catch (error) {
     if (error) { }
+  }
+}
+
+export const getSalesByEncargado = async (accessToken: string, encargado: string) => {
+  try {
+    const apiUrl = `${SALES_URL.byEncargado}${encargado}`
+    const response = await fetch(apiUrl, {
+      headers: {
+        "Authorization": `Bearer ${accessToken}`
+      },
+    })
+
+    const filteredSalesByEncargado = await response.json()
+
+    return filteredSalesByEncargado
+  } catch (error) {
+    if (error) {}
   }
 }
