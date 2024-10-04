@@ -301,7 +301,7 @@ function CheckoutForm(): React.JSX.Element {
                         <th scope="row">
                           <div className="d-flex align-items-center mt-4">
                             <Image
-                              src={`${domain}${item.imagenes[0].url}`}
+                              src={`${domain}${item?.imagenes[0]?.url}`}
                               alt=""
                               width={90}
                               height={75}

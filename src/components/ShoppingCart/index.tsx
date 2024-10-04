@@ -61,7 +61,7 @@ function ShoppingCart(): React.JSX.Element {
                         <th scope="row">
                           <div className="d-flex align-items-center">
                             <Image
-                              src={`${domain}${item.imagenes[0].url}`}
+                              src={`${domain}${item?.imagenes[0]?.url}`}
                               width={80}
                               height={80}
                               className="img-fluid me-5 rounded-circle"

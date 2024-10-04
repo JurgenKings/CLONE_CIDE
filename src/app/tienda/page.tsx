@@ -122,7 +122,7 @@ async function StorePage({ searchParams }) {
                           <div key={item.documentId} className="d-flex align-items-center justify-content-start">
                             <div className="rounded me-4" style={{ width: "100px", height: "100px" }}>
                               <Image
-                                src={`${domain}${item.imagenes[0].url}`}
+                                src={`${domain}${item?.imagenes[0]?.url}`}
                                 layout="fixed"
                                 width={80}
                                 height={80}

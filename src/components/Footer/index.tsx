@@ -96,8 +96,7 @@ function Footer(): React.JSX.Element {
                 <div className="col-lg-3 col-md-6">
                   <div className="d-flex flex-column text-start footer-item">
                     <h4 className="text-light mb-3">Cuenta</h4>
-                    <a className="btn-link" href="">Mi cuenta</a>
-                    <a className="btn-link" href="">Carrito</a>
+                    <Link className="btn-link" href="/carrito">Carrito</Link>
                   </div>
                 </div>
                 <div className="col-lg-3 col-md-6">
